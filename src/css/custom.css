@@ -55,7 +55,7 @@ footer.footer {
 
 div.schema-wrapper {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 4fr;
   grid-template-rows: auto;
 }
 
