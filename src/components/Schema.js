@@ -67,8 +67,30 @@ const Schema = ({ schema }) => {
         <div className="schema-intro">
           <h1>Code Property Graph Specification 1.0</h1>
           <div className="preambel">
-            <p>This document describes the first major version of the Code Property Graph data structure.
-            </p>
+      <p>This is the specification of the Code Property Graph, a
+    language-agnostic intermediate graph representation of code
+    designed for code querying.
+      </p>
+      <p>
+    The code property graph is a directed, edge-labeled, attributed
+    multigraph. This specification provides the graph schema, that is,
+    the types of nodes and edges and their properties, as well as
+    constraints that specify which source and destination nodes are
+    permitted for each edge type.
+      </p>
+      <p>
+      The graph schema is structured into multiple layers, each of
+    which provide node, property, and edge type
+    definitions. A layer may depend on multiple other layers and make
+    use of the types it provides.
+      </p>
+
+      <p>
+      In the following, we describe each layer in detail. Note that
+    this specification faithfully represents the code property graph
+    as implemented by the Joern static analysis framework, as it is
+    generated from its code.
+      </p>
           </div>
         </div>
 
