@@ -52,8 +52,13 @@ footer.footer {
 
 div.schema-wrapper {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 300px auto;
   grid-template-rows: auto;
+}
+
+div.schema-content {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
 }
 
 div.schema-sidebar {
@@ -114,11 +119,6 @@ div.node {
 
 .overview {
   display: none;
-}
-
-div.schema-content {
-  padding-top: 2rem;
-  padding-bottom: 6rem;
 }
 
 ul.schemas {
