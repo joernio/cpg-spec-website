@@ -9,6 +9,8 @@ module.exports = function (context, options) {
       const spec = JSON.parse(specString);
       const schemasDict = spec.schemas.reduce((out, schema) => {
         out[schema.name] = {...schema};
+	out[schema.name].nodes = [];
+	out[schema.name].edges = [];
         return out;
       }, {});
       const schemasWithNodes = spec.nodes.reduce((out, node) => {
