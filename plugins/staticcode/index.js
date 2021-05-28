@@ -12,10 +12,12 @@ module.exports = function (context, options) {
         return out;
       }, {});
       const schemasWithNodes = spec.nodes.reduce((out, node) => {
-        if (node.schema && !("nodes" in out[node.schema])) {
-          out[node.schema].nodes = [];
+        if (out[node.schema]) {
+          if (node.schema && !("nodes" in out[node.schema])) {
+            out[node.schema].nodes = [];
+          }
+          out[node.schema].nodes.push(node);
         }
-        out[node.schema].nodes.push(node);
         return out;
       }, schemasDict);
 
