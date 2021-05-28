@@ -20,9 +20,22 @@ module.exports = function (context, options) {
         }
         return out;
       }, schemasDict);
+      const schemaWithEdges = spec.edges.reduce((out, edge) => {
+        if (out[edge.schema]) {
+          if (edge.schema && !("edges" in out[edge.schema])) {
+            out[edge.schema].edges = [];
+	    out[edge.schema].nodes = [];
+          }
+          out[edge.schema].edges.push(edge);
+        }
+        return out;
+      }, schemasDict);
 
       var schemasArray = [];
       Object.entries(schemasWithNodes).forEach(([schemaName, schema]) =>{
+        schemasArray.push(schema);
+      });
+      Object.entries(schemaWithEdges).forEach(([schemaName, schema]) =>{
         schemasArray.push(schema);
       });
       return schemasArray;
