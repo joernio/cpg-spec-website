@@ -65,7 +65,11 @@ const Schema = ({ schema }) => {
       </div>
       <div className="schema-content">
         <div className="schema-intro">
-          <h1>Code Property Graph Specification 1.0</h1>
+      <h1>Code Property Graph Specification 1.1</h1>
+      <h4>
+      <i>Contributors: Fabian Yamaguchi, Markus Lottmann, Niko Schmidt, Michael Pollmeier, Suchakra Sharma, Claudiu-Vlad Ursache.</i>
+      </h4>
+      <br/>
           <div className="preambel">
       <p>This is the specification of the Code Property Graph, a
     language-agnostic intermediate graph representation of code
