@@ -104,10 +104,6 @@ const Schema = ({ schema }) => {
               <div class="schema-description">
                 <h3 id={schemaIdForName(schema.name)}>{schema.name}</h3>
                 <p>{schema.description}</p>
-                {schema.providedByFrontend &&
-                  <p className="schema-frontend-descr">This schema is provided by the frontend</p>}
-                {!schema.providedByFrontend &&
-                  <p className="schema-frontend-descr">This schema should not be written by the language frontend</p>}
               </div>
               <div className="schema-nodes">
                 {schema.nodes.map(node => (
