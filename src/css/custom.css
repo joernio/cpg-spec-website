@@ -60,6 +60,7 @@ div.schema-wrapper {
 div.schema-content {
   padding-top: 2rem;
   padding-bottom: 6rem;
+  min-width:  300px;
 }
 
 div.schema-sidebar {
