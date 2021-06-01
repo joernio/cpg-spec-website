@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
 const nodeIdForName = (name) => { return "node-ref-" + name.toLowerCase(); }
 const edgeIdForName = (name) => { return "edge-ref-" + name.toLowerCase(); }
 const schemaIdForName = (name) => { return "schema-ref-" + name.toLowerCase(); }
+const propertyIdForName = (name) => { return "prop-ref-" + name.toLowerCase(); }
+
 
 const Node = ({ node }) => {
   return (
@@ -56,6 +58,17 @@ const Edge = ({ edge }) => {
   )
 }
 
+
+const Property = ({ property }) => {
+  return (
+    <div className="property">
+      <div className="property-name"><h4 className="property-name" id={propertyIdForName(property.name)}>{property.name}</h4></div>
+      {property.comment &&
+      <div className="property-comment">{property.comment}</div>}
+    </div>
+  )
+}
+
 const Schema = ({ schema }) => {
   return (
     <div className="schema-wrapper">
@@ -63,10 +76,10 @@ const Schema = ({ schema }) => {
         <ul className="schemas">
         {schema.map(schema => {
           return (<li>
-            <div>
+            <div class="schema-sidebar-entry">
               <a className="sidebar-link" href={"#" + schemaIdForName(schema.name)}>{schema.name}</a>
             </div>
-            <ul className="schema-edges">
+            <ul className="schema-nodes">
               {schema.nodes.map(node => (
                 <li><a className="sidebar-link sidebar-node-link" href={"#" + nodeIdForName(node.name)}>{node.name}</a></li>
               ))}
@@ -74,6 +87,11 @@ const Schema = ({ schema }) => {
             <ul className="schema-edges">
               {schema.edges.map(edge => (
                 <li><a className="sidebar-link sidebar-edge-link" href={"#" + edgeIdForName(edge.name)}>{edge.name}</a></li>
+              ))}
+             </ul>
+            <ul className="schema-properties">
+              {schema.properties.map(property => (
+                <li><a className="sidebar-link sidebar-property-link" href={"#" + propertyIdForName(property.name)}>{property.name}</a></li>
               ))}
              </ul>
           </li>)
@@ -131,7 +149,12 @@ const Schema = ({ schema }) => {
                 {schema.edges && schema.edges.map(edge => (
                   <Edge edge={edge} />
                 ))}
-               </div>
+              </div>
+              <div className="schema-properties">
+                {schema.properties && schema.properties.map(property => (
+                  <Property property={property} />
+                ))}
+              </div>
             </div>)
           })}
         </div>
