@@ -53,7 +53,7 @@ footer.footer {
 
 div.schema-wrapper {
   display: grid;
-  grid-template-columns: 26rem auto;
+  grid-template-columns: 30rem auto;
   grid-template-rows: auto;
 }
 
@@ -67,7 +67,7 @@ div.schema-content {
 
 div.schema-sidebar {
   overflow: auto;
-  padding-left: 2vh;
+  padding-left: 2rem;
   padding-top: 8rem;
   position: sticky;
   top: 0;
@@ -137,6 +137,26 @@ h4.edge-name::before {
   font-size: 0.8rem;
 }
 
+div.property {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.property-comment {
+  font-family: sans-serif;
+}
+
+h4.property-name::before {
+  content: "PROPERTY";
+  background-color: #F3DCDA;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.2rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+}
+
 .ui-description {
  font-size: 1rem;
 }
@@ -154,12 +174,20 @@ h4.edge-name::before {
   padding-left: 2rem;
 }
 
+.schema-properties {
+  padding-left: 2rem;
+}
+
 .intro {
   margin-bottom: 10rem;
 }
 
 .overview {
   display: none;
+}
+
+.schema-sidebar-entry {
+  margin-top: 2rem;
 }
 
 ul.schemas {
@@ -200,11 +228,30 @@ ul.schema-nodes li {
   font-size: 0.8rem;
 }
 
+.sidebar-property-link::before {
+  content: "P";
+  background-color: #f3dcda;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.2rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+}
+
 ul.schema-edges {
   list-style-type: none;
 }
 
 ul.schema-edges li {
+  margin-left: 2rem;
+}
+
+ul.schema-properties {
+  list-style-type: none;
+}
+
+ul.schema-properties li {
   margin-left: 2rem;
 }
 
