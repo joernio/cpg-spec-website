@@ -39,6 +39,11 @@ const Node = ({ node }) => {
           <span className="node-property" key={i}>{pp}</span>
         ))}</div>}
 
+      {node.inheritedProperties && node.inheritedProperties.length > 0 &&
+        <div><span className="ui-description">INHERITED PROPERTIES: </span>{node.inheritedProperties.map((pp, i) => (
+          <span className="node-property" key={i}>{pp.name}</span>
+        ))}</div>}
+
       {node.extends && node.extends.length > 0 &&
         <div><span className="ui-description">EXTENDS: </span>{node.extends.map((ext, i) => (
           <span className="node-extension" key={i}>{ext}</span>
