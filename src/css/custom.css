@@ -87,11 +87,23 @@ div.node {
   margin-bottom: 2rem;
 }
 
+
 .node-property {
   font-size: 1.4rem;
   margin: 0.3rem;
   padding: 0.3rem;
   border: 1px solid black;
+}
+
+h4.node-name::before {
+  content: "NODE";
+  background-color: #4EC001;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.2rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }
 
 .node-extension {
@@ -111,6 +123,17 @@ div.edge {
 
 .edge-comment {
  font-family: sans-serif;
+}
+
+h4.edge-name::before {
+  content: "EDGE";
+  background-color: #46A2CA;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.2rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }
 
 .ui-description {
@@ -152,6 +175,28 @@ ul.schema-nodes {
 
 ul.schema-nodes li {
   margin-left: 2rem;
+}
+
+.sidebar-node-link::before {
+  content: "N";
+  background-color: #4EC001;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.2rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+}
+
+.sidebar-edge-link::before {
+  content: "E";
+  background-color: #46A2CA;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.2rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }
 
 ul.schema-edges {
