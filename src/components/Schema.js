@@ -35,17 +35,17 @@ const Node = ({ node }) => {
       <div className="node-comment">{node.comment}</div>}
 
       {node.properties && node.properties.length > 0 &&
-        <div><span className="ui-description">PROPERTIES: </span>{node.properties.map((pp, i) => (
+        <div className="node-properties"><span className="ui-description">PROPERTIES: </span>{node.properties.map((pp, i) => (
           <span className="node-property" key={i}><a className="description-link definition-property-link" href={"#" + propertyIdForName(pp)}>{pp}</a></span>
         ))}</div>}
 
       {node.inheritedProperties && node.inheritedProperties.length > 0 &&
-        <div><span className="ui-description">INHERITED PROPERTIES: </span>{node.inheritedProperties.map((pp, i) => (
+        <div className="node-inherited-properties"><span className="ui-description">INHERITED PROPERTIES: </span>{node.inheritedProperties.map((pp, i) => (
           <span className="node-property" key={i}><a className="description-link definition-property-link" href={"#" + propertyIdForName(pp.name)}>{pp.name}</a></span>
         ))}</div>}
 
       {node.extends && node.extends.length > 0 &&
-        <div><span className="ui-description">EXTENDS: </span>{node.extends.map((ext, i) => (
+        <div className="node-extensions"><span className="ui-description">EXTENDS: </span>{node.extends.map((ext, i) => (
           <span className="node-extension" key={i}><a className="description-link definition-node-link" href={"#" + nodeIdForName(ext)}>{ext}</a></span>
         ))}</div>}
     </div>
@@ -62,7 +62,6 @@ const Edge = ({ edge }) => {
     </div>
   )
 }
-
 
 const Property = ({ property }) => {
   return (
@@ -81,24 +80,26 @@ const Schema = ({ schema }) => {
         <ul className="schemas">
         {schema.map(schema => {
           return (<li>
-            <div class="schema-sidebar-entry">
-              <a className="sidebar-link" href={"#" + schemaIdForName(schema.name)}>{schema.name}</a>
+            <div className="schema-sidebar-title">
+              <a className="sidebar-link schema-sidebar-title" href={"#" + schemaIdForName(schema.name)}>{schema.name}</a>
             </div>
-            <ul className="schema-nodes">
-              {schema.nodes.map(node => (
-                <li><a className="sidebar-link sidebar-node-link" href={"#" + nodeIdForName(node.name)}>{node.name}</a></li>
-              ))}
-             </ul>
-            <ul className="schema-edges">
-              {schema.edges.map(edge => (
-                <li><a className="sidebar-link sidebar-edge-link" href={"#" + edgeIdForName(edge.name)}>{edge.name}</a></li>
-              ))}
-             </ul>
-            <ul className="schema-properties">
-              {schema.properties.map(property => (
-                <li><a className="sidebar-link sidebar-property-link" href={"#" + propertyIdForName(property.name)}>{property.name}</a></li>
-              ))}
-             </ul>
+            <div className="schema-sidebar-content">
+              <ul className="schema-nodes">
+                {schema.nodes.map(node => (
+                  <li><a className="sidebar-link sidebar-node-link" href={"#" + nodeIdForName(node.name)}>{node.name}</a></li>
+                ))}
+               </ul>
+              <ul className="schema-edges">
+                {schema.edges.map(edge => (
+                  <li><a className="sidebar-link sidebar-edge-link" href={"#" + edgeIdForName(edge.name)}>{edge.name}</a></li>
+                ))}
+               </ul>
+              <ul className="schema-properties">
+                {schema.properties.map(property => (
+                  <li><a className="sidebar-link sidebar-property-link" href={"#" + propertyIdForName(property.name)}>{property.name}</a></li>
+                ))}
+               </ul>
+            </div>
           </li>)
         })}
         </ul>
@@ -107,7 +108,7 @@ const Schema = ({ schema }) => {
         <div className="schema-intro">
       <h1>Code Property Graph Specification 1.1</h1>
       <h4>
-      <i>Contributors: Fabian Yamaguchi, Markus Lottmann, Niko Schmidt, Michael Pollmeier, Suchakra Sharma, Claudiu-Vlad Ursache.</i>
+        <span id="contributors"><i>Contributors: Fabian Yamaguchi, Markus Lottmann, Niko Schmidt, Michael Pollmeier, Suchakra Sharma, Claudiu-Vlad Ursache.</i></span>
       </h4>
       <br/>
           <div className="preambel">
