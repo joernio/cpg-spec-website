@@ -68,7 +68,7 @@ div.schema-content {
 div.schema-sidebar {
   overflow: auto;
   padding-left: 2vh;
-  padding-top: 2vh;
+  padding-top: 8rem;
   position: sticky;
   top: 0;
   display: block;
