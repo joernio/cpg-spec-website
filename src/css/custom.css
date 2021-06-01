@@ -15,6 +15,10 @@
   --ifm-font-size-base: 14px;
 }
 
+/**
+ * ----- GENERAL ----
+ **/
+
 body {
   font-size: 1.2rem;
 }
@@ -43,6 +47,14 @@ h4 {
   border-radius: 5px;
 }
 
+.hidden {
+  display: none;
+}
+
+/**
+ * ----- STRUCTURE ----
+ **/
+
 nav.navbar {
   display: none;
 }
@@ -51,6 +63,21 @@ footer.footer {
   display: none;
 }
 
+.intro {
+  margin-bottom: 10rem;
+}
+
+.overview {
+  display: none;
+}
+
+#schemas {
+  overflow: auto;
+}
+
+div.preambel {
+  margin-bottom: 6rem;
+}
 div.schema-wrapper {
   display: grid;
   grid-template-columns: 30rem auto;
@@ -76,18 +103,35 @@ div.schema-sidebar {
   border-right: 4px solid #eee;
 }
 
-.hidden {
-  display: none;
+/**
+ * ----- CONTENT ----
+ **/
+
+.ui-description {
+ font-size: 1rem;
 }
 
-.main-section {
+.schema-section {
+  margin-bottom: 4rem;
+  border-top: 0.5rem solid black;
+}
+
+.schema-nodes {
+  padding-left: 2rem;
+}
+
+.schema-edges {
+  padding-left: 2rem;
+}
+
+.schema-properties {
+  padding-left: 2rem;
 }
 
 div.node {
   padding: 1rem;
   margin-bottom: 2rem;
 }
-
 
 .node-property {
   font-size: 1.4rem;
@@ -155,34 +199,34 @@ h4.property-name::before {
   font-size: 0.8rem;
 }
 
-.ui-description {
- font-size: 1rem;
+.schema-frontend-descr {
+  font-size: 1.2rem;
 }
 
-.schema-section {
-  margin-bottom: 4rem;
-  border-top: 0.5rem solid black;
+.definition-property-link {
+  background-color: #f3dcda;
+  color: black;
+  padding: 0.3rem;
+  border: 1px solid black;
+  font-size: 1rem;
 }
 
-.schema-nodes {
-  padding-left: 2rem;
+.definition-node-link {
+  background-color: #4EC001;
+  color: black;
+  padding: 0.3rem;
+  border: 1px solid black;
+  font-size: 1rem;
 }
 
-.schema-edges {
-  padding-left: 2rem;
+a.description-link:link, a.description-link:visited, a.description-link:focus, a.description-link:active {
+  color: black;
+  text-decoration: none;
 }
 
-.schema-properties {
-  padding-left: 2rem;
-}
-
-.intro {
-  margin-bottom: 10rem;
-}
-
-.overview {
-  display: none;
-}
+/**
+ * ----- SIDEBAR ----
+ **/
 
 .schema-sidebar-entry {
   margin-top: 2rem;
@@ -253,10 +297,6 @@ ul.schema-properties li {
   margin-left: 2rem;
 }
 
-div.preambel {
-  margin-bottom: 6rem;
-}
-
 .sidebar-link {
   color: black;
 }
@@ -269,34 +309,5 @@ a.sidebar-link:link, a.sidebar-link:visited, a.sidebar-link:focus, a.sidebar-lin
 a.sidebar-link:hover {
   color: gray;
   text-decoration: underline;
-}
-
-#schemas {
-  overflow: auto;
-}
-
-.schema-frontend-descr {
-  font-size: 1.2rem;
-}
-
-.definition-property-link {
-  background-color: #f3dcda;
-  color: black;
-  padding: 0.3rem;
-  border: 1px solid black;
-  font-size: 1rem;
-}
-
-.definition-node-link {
-  background-color: #4EC001;
-  color: black;
-  padding: 0.3rem;
-  border: 1px solid black;
-  font-size: 1rem;
-}
-
-a.description-link:link, a.description-link:visited, a.description-link:focus, a.description-link:active {
-  color: black;
-  text-decoration: none;
 }
 
