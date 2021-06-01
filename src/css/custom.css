@@ -92,8 +92,6 @@ div.node {
 .node-property {
   font-size: 1.4rem;
   margin: 0.3rem;
-  padding: 0.3rem;
-  border: 1px solid black;
 }
 
 h4.node-name::before {
@@ -280,3 +278,25 @@ a.sidebar-link:hover {
 .schema-frontend-descr {
   font-size: 1.2rem;
 }
+
+.definition-property-link {
+  background-color: #f3dcda;
+  color: black;
+  padding: 0.3rem;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+.definition-node-link {
+  background-color: #4EC001;
+  color: black;
+  padding: 0.3rem;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+a.description-link:link, a.description-link:visited, a.description-link:focus, a.description-link:active {
+  color: black;
+  text-decoration: none;
+}
+

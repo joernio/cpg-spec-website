@@ -36,17 +36,17 @@ const Node = ({ node }) => {
 
       {node.properties && node.properties.length > 0 &&
         <div><span className="ui-description">PROPERTIES: </span>{node.properties.map((pp, i) => (
-          <span className="node-property" key={i}>{pp}</span>
+          <span className="node-property" key={i}><a className="description-link definition-property-link" href={"#" + propertyIdForName(pp)}>{pp}</a></span>
         ))}</div>}
 
       {node.inheritedProperties && node.inheritedProperties.length > 0 &&
         <div><span className="ui-description">INHERITED PROPERTIES: </span>{node.inheritedProperties.map((pp, i) => (
-          <span className="node-property" key={i}>{pp.name}</span>
+          <span className="node-property" key={i}><a className="description-link definition-property-link" href={"#" + propertyIdForName(pp.name)}>{pp.name}</a></span>
         ))}</div>}
 
       {node.extends && node.extends.length > 0 &&
         <div><span className="ui-description">EXTENDS: </span>{node.extends.map((ext, i) => (
-          <span className="node-extension" key={i}>{ext}</span>
+          <span className="node-extension" key={i}><a className="description-link definition-node-link" href={"#" + nodeIdForName(ext)}>{ext}</a></span>
         ))}</div>}
     </div>
   )
