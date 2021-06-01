@@ -28,7 +28,7 @@ const schemaIdForName = (name) => { return "schema-ref-" + name.toLowerCase(); }
 const Node = ({ node }) => {
   return (
     <div className="node">
-      <div className="node-name"><h4 id={nodeIdForName(node.name)}>{node.name}</h4></div>
+      <div className="node-name"><h4 className="node-name" id={nodeIdForName(node.name)}>{node.name}</h4></div>
       {node.comment &&
       <div className="node-comment">{node.comment}</div>}
 
@@ -49,7 +49,7 @@ const Node = ({ node }) => {
 const Edge = ({ edge }) => {
   return (
     <div className="edge">
-      <div className="edge-name"><h4 id={edgeIdForName(edge.name)}>{edge.name}</h4></div>
+      <div className="edge-name"><h4 className="edge-name" id={edgeIdForName(edge.name)}>{edge.name}</h4></div>
       {edge.comment &&
       <div className="edge-comment">{edge.comment}</div>}
     </div>
@@ -68,12 +68,12 @@ const Schema = ({ schema }) => {
             </div>
             <ul className="schema-edges">
               {schema.nodes.map(node => (
-                <li><a className="sidebar-link" href={"#" + nodeIdForName(node.name)}>[N] {node.name}</a></li>
+                <li><a className="sidebar-link sidebar-node-link" href={"#" + nodeIdForName(node.name)}>{node.name}</a></li>
               ))}
              </ul>
             <ul className="schema-edges">
               {schema.edges.map(edge => (
-                <li><a className="sidebar-link" href={"#" + edgeIdForName(edge.name)}>[E] {edge.name}</a></li>
+                <li><a className="sidebar-link sidebar-edge-link" href={"#" + edgeIdForName(edge.name)}>{edge.name}</a></li>
               ))}
              </ul>
           </li>)
