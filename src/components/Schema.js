@@ -66,7 +66,7 @@ const Schema = ({ schema }) => {
             <div>
               <a className="sidebar-link" href={"#" + schemaIdForName(schema.name)}>{schema.name}</a>
             </div>
-            <ul className="schema-edges">
+            <ul className="schema-nodes">
               {schema.nodes.map(node => (
                 <li><a className="sidebar-link sidebar-node-link" href={"#" + nodeIdForName(node.name)}>{node.name}</a></li>
               ))}
