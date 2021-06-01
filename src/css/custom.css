@@ -102,6 +102,15 @@ div.node {
  font-family: sans-serif;
 }
 
+div.edge {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.edge-comment {
+ font-family: sans-serif;
+}
+
 .ui-description {
  font-size: 1rem;
 }
@@ -112,6 +121,10 @@ div.node {
 }
 
 .schema-nodes {
+  padding-left: 2rem;
+}
+
+.schema-edges {
   padding-left: 2rem;
 }
 
@@ -136,6 +149,14 @@ ul.schema-nodes {
 }
 
 ul.schema-nodes li {
+  margin-left: 2rem;
+}
+
+ul.schema-edges {
+  list-style-type: none;
+}
+
+ul.schema-edges li {
   margin-left: 2rem;
 }
 

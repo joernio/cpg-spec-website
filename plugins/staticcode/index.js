@@ -9,8 +9,8 @@ module.exports = function (context, options) {
       const spec = JSON.parse(specString);
       const schemasDict = spec.schemas.reduce((out, schema) => {
         out[schema.name] = {...schema};
-	out[schema.name].nodes = [];
-	out[schema.name].edges = [];
+        out[schema.name].nodes = [];
+        out[schema.name].edges = [];
         return out;
       }, {});
       const schemasWithNodes = spec.nodes.reduce((out, node) => {
@@ -23,8 +23,21 @@ module.exports = function (context, options) {
         return out;
       }, schemasDict);
 
+      var schemasWithNodesAndEdges = schemasWithNodes;
+      if (spec.edges) {
+        schemasWithNodesAndEdges = spec.edges.reduce((out, edge) => {
+          if (out[edge.schema]) {
+            if (edge.schema && !("edges" in out[edge.schema])) {
+              out[edge.schema].edges = [];
+            }
+            out[edge.schema].edges.push(edge);
+          }
+          return out;
+        }, schemasWithNodes);
+      }
+
       var schemasArray = [];
-      Object.entries(schemasWithNodes).forEach(([schemaName, schema]) =>{
+      Object.entries(schemasWithNodesAndEdges).forEach(([schemaName, schema]) =>{
         schemasArray.push(schema);
       });
       return schemasArray;
