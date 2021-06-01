@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const nodeIdForName = (name) => { return "node-ref-" + name.toLowerCase(); }
+const edgeIdForName = (name) => { return "edge-ref-" + name.toLowerCase(); }
 const schemaIdForName = (name) => { return "schema-ref-" + name.toLowerCase(); }
 
 const Node = ({ node }) => {
@@ -44,6 +45,17 @@ const Node = ({ node }) => {
   )
 }
 
+
+const Edge = ({ edge }) => {
+  return (
+    <div className="edge">
+      <div className="edge-name"><h4 id={edgeIdForName(edge.name)}>{edge.name}</h4></div>
+      {edge.comment &&
+      <div className="edge-comment">{edge.comment}</div>}
+    </div>
+  )
+}
+
 const Schema = ({ schema }) => {
   return (
     <div className="schema-wrapper">
@@ -54,9 +66,14 @@ const Schema = ({ schema }) => {
             <div>
               <a className="sidebar-link" href={"#" + schemaIdForName(schema.name)}>{schema.name}</a>
             </div>
-            <ul className="schema-nodes">
+            <ul className="schema-edges">
               {schema.nodes.map(node => (
-                <li><a className="sidebar-link" href={"#" + nodeIdForName(node.name)}>{node.name}</a></li>
+                <li><a className="sidebar-link" href={"#" + nodeIdForName(node.name)}>[N] {node.name}</a></li>
+              ))}
+             </ul>
+            <ul className="schema-edges">
+              {schema.edges.map(edge => (
+                <li><a className="sidebar-link" href={"#" + edgeIdForName(edge.name)}>[E] {edge.name}</a></li>
               ))}
              </ul>
           </li>)
@@ -108,6 +125,11 @@ const Schema = ({ schema }) => {
               <div className="schema-nodes">
                 {schema.nodes.map(node => (
                   <Node node={node} />
+                ))}
+               </div>
+              <div className="schema-edges">
+                {schema.edges && schema.edges.map(edge => (
+                  <Edge edge={edge} />
                 ))}
                </div>
             </div>)
