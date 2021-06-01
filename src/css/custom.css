@@ -58,7 +58,8 @@ div.schema-wrapper {
 }
 
 div.schema-content {
-  padding-top: 2rem;
+  padding-top: 8rem;
+  padding-left: 2rem;
   padding-bottom: 6rem;
   min-width:  300px;
 }
@@ -71,6 +72,7 @@ div.schema-sidebar {
   top: 0;
   display: block;
   height: 98vh;
+  border-right: 4px solid #eee;
 }
 
 .hidden {
