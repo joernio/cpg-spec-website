@@ -107,6 +107,17 @@ div.schema-sidebar {
   border-right: 4px solid #eee;
 }
 
+@media screen and (max-width: 78em) {
+  div.schema-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  div.schema-sidebar {
+    display:none;
+  }
+}
+
 /**
  * ----- CONTENT ----
  **/
