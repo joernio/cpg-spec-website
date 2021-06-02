@@ -196,6 +196,7 @@ h4.node-name::before {
 div.edge {
   padding: 1rem;
   margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
 }
 
 .edge-comment {
@@ -216,6 +217,7 @@ h4.edge-name::before {
 div.property {
   padding: 1rem;
   margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
 }
 
 .property-comment {
