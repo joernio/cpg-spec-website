@@ -85,7 +85,7 @@ div.preambel {
 
 div.schema-wrapper {
   display: grid;
-  grid-template-columns: 26rem auto;
+  grid-template-columns: 26rem 0 auto;
   grid-template-rows: auto;
 }
 
@@ -105,6 +105,13 @@ div.schema-sidebar {
   display: block;
   height: 98vh;
   border-right: 4px solid #eee;
+}
+
+
+@media screen and (min-width: 1600px) {
+  div.schema-wrapper {
+    grid-template-columns: 26rem 8rem auto;
+  }
 }
 
 @media screen and (max-width: 78em) {
