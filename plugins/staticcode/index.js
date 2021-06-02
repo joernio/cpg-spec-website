@@ -56,12 +56,6 @@ module.exports = function (context, options) {
       Object.entries(schemasWithNodesEdgesAndProps).forEach(([schemaName, schema]) =>{
         schemasArray.push(schema);
       });
-
-      schemasArray.sort((first, second) => {
-        const firstName = first.name.toLowerCase();
-        const secondName = second.name.toLowerCase();
-        return (firstName < secondName) ? -1 : (firstName > secondName) ? 1 : 0;
-      });
       return schemasArray;
     },
     async contentLoaded({content, actions}) {
