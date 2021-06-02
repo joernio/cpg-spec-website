@@ -77,6 +77,7 @@ const Schema = ({ schema }) => {
   return (
     <div className="schema-wrapper">
       <div className="schema-sidebar">
+        <div className="sidebar-title"><span className="sidebar-title">OVERVIEW</span></div>
         <ul className="schemas">
         {schema.map(schema => {
           return (<li>

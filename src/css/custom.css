@@ -99,7 +99,6 @@ div.schema-content {
 
 div.schema-sidebar {
   overflow: auto;
-  padding-top: 8rem;
   position: sticky;
   top: 0;
   display: block;
@@ -256,12 +255,20 @@ h4.property-name::before {
   font-size: 1rem;
 }
 
+.definition-property-link:hover {
+  background-color: #f7eae8;
+}
+
 .definition-node-link {
   background-color: #4EC001;
   color: black;
   padding: 0.3rem;
   border: 1px solid black;
   font-size: 1rem;
+}
+
+.definition-node-link:hover {
+  background-color: #83d24d;
 }
 
 a.description-link:link, a.description-link:visited, a.description-link:focus, a.description-link:active {
@@ -272,6 +279,21 @@ a.description-link:link, a.description-link:visited, a.description-link:focus, a
 /**
  * ----- SIDEBAR ----
  **/
+
+div.sidebar-title {
+  padding-top: 1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+span.sidebar-title {
+  font-variant: all-small-caps;
+  text-transform: lowercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  color: #bbb;
+}
 
 div.schema-sidebar-title {
   margin-top: 2rem;
