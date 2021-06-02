@@ -104,6 +104,7 @@ const Schema = ({ schema }) => {
         })}
         </ul>
       </div>
+      <div className="content-separator"></div>
       <div className="schema-content">
         <div className="schema-intro">
       <h1>Code Property Graph Specification 1.1</h1>
