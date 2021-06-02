@@ -157,6 +157,7 @@ div.node {
 .node-property {
   font-size: 1.4rem;
   margin: 0.3rem;
+  display: inline-block;
 }
 
 h4.node-name::before {
@@ -174,6 +175,7 @@ h4.node-name::before {
   font-size: 1.4rem;
   margin: 0.3rem;
   padding: 0.3rem;
+  display: inline-block;
 }
 
 .node-comment {
