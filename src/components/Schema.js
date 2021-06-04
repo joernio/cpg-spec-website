@@ -41,7 +41,7 @@ const Node = ({ node }) => {
       {hasProperties &&
         <div className="node-properties">
           <span className="ui-description">PROPERTIES: </span>
-          {node.properties.map((pp, i) =>  {
+          {node.properties.sort().map((pp, i) =>  {
             const cardinality = node.propsToCardinalities[pp];
             return (
             <span className={"node-property  definition-property-cardinality-" + cardinality } key={i}>
@@ -52,7 +52,7 @@ const Node = ({ node }) => {
       {hasInheritedProperties &&
         <div className="node-inherited-properties">
           <span className="ui-description">INHERITED PROPERTIES: </span>
-          {node.inheritedProperties.map((pp, i) => {
+          {node.inheritedProperties.sort((a, b) => a.name.localeCompare(b.name)).map((pp, i) => {
             const cardinality = node.propsToCardinalities[pp.name];
             return (
             <span className={"node-property  definition-property-cardinality-" + cardinality } key={i}>
