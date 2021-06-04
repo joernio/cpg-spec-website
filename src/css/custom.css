@@ -386,26 +386,15 @@ a.sidebar-link:hover {
   text-decoration: underline;
 }
 
-.definition-property-cardinality-zeroOrOne::after {
-  content: "zeroOrOne";
-  background-color: #2C172E;
-  font-size: 1rem;
-  color: white;
-  height: 100%;
+.property-cardinality {
+  margin-top: 2rem;
 }
 
-.definition-property-cardinality-one::after {
-  content: "one";
-  background-color: #2C172E;
-  font-size: 1rem;
-  color: white;
-  height: 100%;
-}
-
-.definition-property-cardinality-list::after {
+.cardinality-value {
   content: "list";
-  background-color: #2C172E;
+  background-color: #A54666;
   font-size: 1rem;
   color: white;
   height: 100%;
+  padding: 0.2rem;
 }
