@@ -28,26 +28,41 @@ const propertyIdForName = (name) => { return "prop-ref-" + name.toLowerCase(); }
 
 
 const Node = ({ node }) => {
+  const hasProperties = node.properties && node.properties.length > 0
+  const hasInheritedProperties = node.inheritedProperties && node.inheritedProperties.length > 0
+  const hasExtensions = node.extends && node.extends.length > 0
+
   return (
     <div className="node">
       <div className="node-name"><h4 className="node-name" id={nodeIdForName(node.name)}>{node.name}</h4></div>
       {node.comment &&
-      <div className="node-comment">{node.comment}</div>}
+        <div className="node-comment">{node.comment}</div>}
 
-      {node.properties && node.properties.length > 0 &&
-        <div className="node-properties"><span className="ui-description">PROPERTIES: </span>{node.properties.map((pp, i) => (
-          <span className="node-property" key={i}><a className="description-link definition-property-link" href={"#" + propertyIdForName(pp)}>{pp}</a></span>
-        ))}</div>}
+      {hasProperties &&
+        <div className="node-properties">
+          <span className="ui-description">PROPERTIES: </span>
+          {node.properties.map((pp, i) => (
+            <span className="node-property" key={i}>
+              <a className="description-link definition-property-link" href={"#" + propertyIdForName(pp)}>{pp}</a>
+            </span>))}
+        </div>}
 
-      {node.inheritedProperties && node.inheritedProperties.length > 0 &&
-        <div className="node-inherited-properties"><span className="ui-description">INHERITED PROPERTIES: </span>{node.inheritedProperties.map((pp, i) => (
-          <span className="node-property" key={i}><a className="description-link definition-property-link" href={"#" + propertyIdForName(pp.name)}>{pp.name}</a></span>
-        ))}</div>}
+      {hasInheritedProperties &&
+        <div className="node-inherited-properties">
+          <span className="ui-description">INHERITED PROPERTIES: </span>
+          {node.inheritedProperties.map((pp, i) => (
+            <span className="node-property" key={i}>
+              <a className="description-link definition-property-link" href={"#" + propertyIdForName(pp.name)}>{pp.name}</a>
+            </span>))}
+        </div>}
 
-      {node.extends && node.extends.length > 0 &&
-        <div className="node-extensions"><span className="ui-description">EXTENDS: </span>{node.extends.map((ext, i) => (
-          <span className="node-extension" key={i}><a className="description-link definition-node-link" href={"#" + nodeIdForName(ext)}>{ext}</a></span>
-        ))}</div>}
+      {hasExtensions &&
+        <div className="node-extensions"><span className="ui-description">EXTENDS: </span>
+          {node.extends.map((ext, i) => (
+            <span className="node-extension" key={i}>
+              <a className="description-link definition-node-link" href={"#" + nodeIdForName(ext)}>{ext}</a>
+            </span>))}
+        </div>}
     </div>
   )
 }
@@ -56,9 +71,11 @@ const Node = ({ node }) => {
 const Edge = ({ edge }) => {
   return (
     <div className="edge">
-      <div className="edge-name"><h4 className="edge-name" id={edgeIdForName(edge.name)}>{edge.name}</h4></div>
+      <div className="edge-name">
+        <h4 className="edge-name" id={edgeIdForName(edge.name)}>{edge.name}</h4>
+      </div>
       {edge.comment &&
-      <div className="edge-comment">{edge.comment}</div>}
+        <div className="edge-comment">{edge.comment}</div>}
     </div>
   )
 }
@@ -66,9 +83,11 @@ const Edge = ({ edge }) => {
 const Property = ({ property }) => {
   return (
     <div className="property">
-      <div className="property-name"><h4 className="property-name" id={propertyIdForName(property.name)}>{property.name}</h4></div>
+      <div className="property-name">
+        <h4 className="property-name" id={propertyIdForName(property.name)}>{property.name}</h4>
+      </div>
       {property.comment &&
-      <div className="property-comment">{property.comment}</div>}
+        <div className="property-comment">{property.comment}</div>}
     </div>
   )
 }
