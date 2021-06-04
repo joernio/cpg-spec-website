@@ -42,9 +42,8 @@ const Node = ({ node }) => {
         <div className="node-properties">
           <span className="ui-description">PROPERTIES: </span>
           {node.properties.sort().map((pp, i) =>  {
-            const cardinality = node.propsToCardinalities[pp];
             return (
-            <span className={"node-property  definition-property-cardinality-" + cardinality } key={i}>
+            <span className="node-property" key={i}>
               <a className="description-link definition-property-link" href={"#" + propertyIdForName(pp)}>{pp}</a>
             </span>)})}
         </div>}
@@ -53,9 +52,8 @@ const Node = ({ node }) => {
         <div className="node-inherited-properties">
           <span className="ui-description">INHERITED PROPERTIES: </span>
           {node.inheritedProperties.sort((a, b) => a.name.localeCompare(b.name)).map((pp, i) => {
-            const cardinality = node.propsToCardinalities[pp.name];
             return (
-            <span className={"node-property  definition-property-cardinality-" + cardinality } key={i}>
+            <span className="node-property" key={i}>
               <a className="description-link definition-property-link" href={"#" + propertyIdForName(pp.name)}>{pp.name}</a>
             </span>)})}
         </div>}
@@ -92,6 +90,9 @@ const Property = ({ property }) => {
       </div>
       {property.comment &&
         <div className="property-comment">{property.comment}</div>}
+      <div className="property-cardinality">
+        <span className="ui-description">CARDINALITY</span> <span className="cardinality-value">{property.cardinality}</span>
+      </div>
     </div>
   )
 }
