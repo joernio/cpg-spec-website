@@ -21,6 +21,11 @@ module.exports = function (context, options) {
           if (node.schema && !("nodes" in out[node.schema])) {
             out[node.schema].nodes = [];
           }
+
+          const propsToCardinalities = {};
+          node.allProperties.forEach((prop, i) =>
+            propsToCardinalities[prop] = node.cardinalities[i]);
+          node.propsToCardinalities = propsToCardinalities;
           out[node.schema].nodes.push(node);
         }
         return out;

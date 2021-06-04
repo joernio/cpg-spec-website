@@ -41,19 +41,23 @@ const Node = ({ node }) => {
       {hasProperties &&
         <div className="node-properties">
           <span className="ui-description">PROPERTIES: </span>
-          {node.properties.map((pp, i) => (
-            <span className="node-property" key={i}>
+          {node.properties.map((pp, i) =>  {
+            const cardinality = node.propsToCardinalities[pp];
+            return (
+            <span className={"node-property  definition-property-cardinality-" + cardinality } key={i}>
               <a className="description-link definition-property-link" href={"#" + propertyIdForName(pp)}>{pp}</a>
-            </span>))}
+            </span>)})}
         </div>}
 
       {hasInheritedProperties &&
         <div className="node-inherited-properties">
           <span className="ui-description">INHERITED PROPERTIES: </span>
-          {node.inheritedProperties.map((pp, i) => (
-            <span className="node-property" key={i}>
+          {node.inheritedProperties.map((pp, i) => {
+            const cardinality = node.propsToCardinalities[pp.name];
+            return (
+            <span className={"node-property  definition-property-cardinality-" + cardinality } key={i}>
               <a className="description-link definition-property-link" href={"#" + propertyIdForName(pp.name)}>{pp.name}</a>
-            </span>))}
+            </span>)})}
         </div>}
 
       {hasExtensions &&
