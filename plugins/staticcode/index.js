@@ -16,11 +16,15 @@ module.exports = function (context, options) {
         return out;
       }, {});
 
+      var propsToCardinalities = {};
       const schemasWithNodes = spec.nodes.reduce((out, node) => {
         if (out[node.schema]) {
           if (node.schema && !("nodes" in out[node.schema])) {
             out[node.schema].nodes = [];
           }
+          node.allProperties.forEach((prop, i) =>
+            propsToCardinalities[prop] = node.cardinalities[i]);
+          node.propsToCardinalities = propsToCardinalities;
           out[node.schema].nodes.push(node);
         }
         return out;
@@ -46,6 +50,7 @@ module.exports = function (context, options) {
             if (property.schema && !("properties" in out[property.schema])) {
               out[property.schema].properties = [];
             }
+            property.cardinality = propsToCardinalities[property.name];
             out[property.schema].properties.push(property);
           }
           return out;
