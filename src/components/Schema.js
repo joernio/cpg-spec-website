@@ -31,6 +31,7 @@ const Node = ({ node }) => {
   const hasProperties = node.properties && node.properties.length > 0
   const hasInheritedProperties = node.inheritedProperties && node.inheritedProperties.length > 0
   const hasExtensions = node.extends && node.extends.length > 0
+  const hasContainedNodes = node.containedNodes && node.containedNodes.length > 0
 
   return (
     <div className="node">
@@ -63,6 +64,14 @@ const Node = ({ node }) => {
           {node.extends.map((ext, i) => (
             <span className="node-extension" key={i}>
               <a className="description-link definition-node-link" href={"#" + nodeIdForName(ext)}>{ext}</a>
+            </span>))}
+        </div>}
+
+      {hasContainedNodes &&
+        <div className="node-contained-nodes"><span className="ui-description">CONTAINED NODES: </span>
+          {node.containedNodes.map((node, i) => (
+            <span className="node-contained-node" key={i}>
+              <a className="description-link definition-node-link" href={"#" + nodeIdForName(node.type)}>{node.name}:{node.cardinality}:{node.type}</a>
             </span>))}
         </div>}
     </div>

@@ -200,6 +200,16 @@ h4.node-name::before {
   margin-top: 1rem;
 }
 
+.node-contained-nodes {
+  margin-top: 1rem;
+}
+
+.node-contained-node {
+  font-size: 1.4rem;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  display: inline-block;
+}
 
 div.edge {
   padding: 1rem;
