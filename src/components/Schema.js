@@ -90,9 +90,10 @@ const Property = ({ property }) => {
       </div>
       {property.comment &&
         <div className="property-comment">{property.comment}</div>}
-      <div className="property-cardinality">
-        <span className="ui-description">CARDINALITY</span> <span className="cardinality-value">{property.cardinality}</span>
-      </div>
+      {property.cardinality &&
+        <div className="property-cardinality">
+          <span className="ui-description">CARDINALITY</span> <span className="cardinality-value">{property.cardinality}</span>
+        </div>}
     </div>
   )
 }
