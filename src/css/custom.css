@@ -211,6 +211,15 @@ h4.node-name::before {
   display: inline-block;
 }
 
+.node-abstract-node {
+  background-color: #D2996A;
+  #background-color: #4EC001;
+  color: black;
+  padding: 0.3rem;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
 div.edge {
   padding: 1rem;
   margin-bottom: 2rem;
