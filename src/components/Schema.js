@@ -69,10 +69,20 @@ const Node = ({ node }) => {
 
       {hasContainedNodes &&
         <div className="node-contained-nodes"><span className="ui-description">CONTAINED NODES: </span>
-          {node.containedNodes.map((node, i) => (
+          {node.containedNodes.map((node, i) => {
+            const isAbstractNode = node.type == 'ABSTRACT_NODE'
+
+            if (isAbstractNode) {
+              return (
+                <span className="node-contained-node" key={i}>
+                  <span className="node-abstract-node">{node.name}:{node.cardinality}:{node.type}</span>
+                </span>)
+            }
+
+            return (
             <span className="node-contained-node" key={i}>
               <a className="description-link definition-node-link" href={"#" + nodeIdForName(node.type)}>{node.name}:{node.cardinality}:{node.type}</a>
-            </span>))}
+            </span>)})}
         </div>}
     </div>
   )
