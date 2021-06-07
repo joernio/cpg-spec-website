@@ -75,13 +75,19 @@ const Node = ({ node }) => {
             if (isAbstractNode) {
               return (
                 <span className="node-contained-node" key={i}>
-                  <span className="node-abstract-node">{node.name}:{node.cardinality}:{node.type}</span>
+                  <span className="contained-node-name">{node.name} -></span>
+                  <span className="contained-node-cardinality">{node.cardinality}</span>
+                  <span className="abstract-node-type">{node.type}</span>
                 </span>)
             }
 
             return (
             <span className="node-contained-node" key={i}>
-              <a className="description-link definition-node-link" href={"#" + nodeIdForName(node.type)}>{node.name}:{node.cardinality}:{node.type}</a>
+              <span className="contained-node-name">{node.name} -></span>
+              <span className="contained-node-cardinality">{node.cardinality}</span>
+              <a className="description-link definition-node-link" href={"#" + nodeIdForName(node.type)}>
+                  <span className="contained-node-type">{node.type}</span>
+              </a>
             </span>)})}
         </div>}
     </div>
