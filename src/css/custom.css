@@ -200,6 +200,44 @@ h4.node-name::before {
   margin-top: 1rem;
 }
 
+.node-contained-nodes {
+  margin-top: 1rem;
+}
+
+.node-contained-node {
+  font-size: 1.4rem;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  display: inline-block;
+  background-color: #E8EEF5;
+}
+
+.node-abstract-node {
+  color: black;
+  padding: 0.3rem;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+.contained-node-name {
+  padding-right: 0.3rem;
+}
+
+.contained-node-cardinality {
+  background-color: #A54666;
+  color: white;
+  font-size: 1rem;
+}
+
+.abstract-node-type {
+  background-color: #AFC9D5;
+  border: 1px solid black;
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+
+.contained-node-type {
+}
 
 div.edge {
   padding: 1rem;

@@ -31,6 +31,7 @@ const Node = ({ node }) => {
   const hasProperties = node.properties && node.properties.length > 0
   const hasInheritedProperties = node.inheritedProperties && node.inheritedProperties.length > 0
   const hasExtensions = node.extends && node.extends.length > 0
+  const hasContainedNodes = node.containedNodes && node.containedNodes.length > 0
 
   return (
     <div className="node">
@@ -64,6 +65,30 @@ const Node = ({ node }) => {
             <span className="node-extension" key={i}>
               <a className="description-link definition-node-link" href={"#" + nodeIdForName(ext)}>{ext}</a>
             </span>))}
+        </div>}
+
+      {hasContainedNodes &&
+        <div className="node-contained-nodes"><span className="ui-description">CONTAINED NODES: </span>
+          {node.containedNodes.map((node, i) => {
+            const isAbstractNode = node.type == 'ABSTRACT_NODE'
+
+            if (isAbstractNode) {
+              return (
+                <span className="node-contained-node" key={i}>
+                  <span className="contained-node-name">{node.name} -></span>
+                  <span className="contained-node-cardinality">{node.cardinality}</span>
+                  <span className="abstract-node-type">{node.type}</span>
+                </span>)
+            }
+
+            return (
+            <span className="node-contained-node" key={i}>
+              <span className="contained-node-name">{node.name} -></span>
+              <span className="contained-node-cardinality">{node.cardinality}</span>
+              <a className="description-link definition-node-link" href={"#" + nodeIdForName(node.type)}>
+                  <span className="contained-node-type">{node.type}</span>
+              </a>
+            </span>)})}
         </div>}
     </div>
   )
